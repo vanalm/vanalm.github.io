@@ -3763,7 +3763,7 @@ body.is-preload #banner p {
 }
 
 .wrapper {
-	background-color: #2e3141;
+	background-color: hsla(266, 73%, 41%, 0.185);
 	margin: 6.5em 0;
 	position: relative;
 }
