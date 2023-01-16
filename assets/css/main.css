@@ -305,7 +305,7 @@ a.special:not(.button) {
 	font-weight: 700;
 	letter-spacing: 0.1em;
 	margin: 0 0 2em 0;
-	text-transform: uppercase;
+	text-transform: capitalize;
 }
 
 a.special:not(.button):before {
@@ -374,7 +374,7 @@ h6 {
 	font-weight: 700;
 	letter-spacing: 0.1em;
 	margin: 0 0 1em 0;
-	text-transform: uppercase;
+	text-transform: capitalize;
 }
 
 h1 a,
@@ -2306,7 +2306,7 @@ label {
 	font-weight: 700;
 	letter-spacing: 0.1em;
 	margin: 0 0 0.7em 0;
-	text-transform: uppercase;
+	text-transform: capitalize;
 }
 
 input[type="text"],
@@ -3015,7 +3015,7 @@ button,
 	padding: 0 2.25em;
 	text-align: center;
 	text-decoration: none;
-	text-transform: uppercase;
+	text-transform: capitalize;
 	white-space: nowrap;
 }
 
@@ -3249,7 +3249,7 @@ button:disabled,
 	line-height: 3em;
 	position: absolute;
 	right: 0.7em;
-	text-transform: uppercase;
+	text-transform: capitalize;
 	top: 0.7em;
 }
 
@@ -3471,7 +3471,7 @@ button:disabled,
 	letter-spacing: 0.1em;
 	line-height: 1.85em;
 	padding: 0.75em 0;
-	text-transform: uppercase;
+	text-transform: capitalize;
 }
 
 #menu .links li a:hover {
@@ -3596,7 +3596,7 @@ body.is-menu-visible #menu .inner {
 	font-weight: 200;
 	letter-spacing: 0.1em;
 	line-height: 2;
-	text-transform: uppercase;
+	text-transform: capitalize;
 }
 
 @media screen and (max-width: 1280px) {
@@ -3708,7 +3708,7 @@ body.is-preload #banner p {
 	font-weight: 200;
 	letter-spacing: 0.1em;
 	line-height: 2;
-	text-transform: uppercase;
+	text-transform: capitalize;
 }
 
 @media screen and (max-width: 1280px) {
