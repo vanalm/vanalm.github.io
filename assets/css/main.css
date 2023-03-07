@@ -1276,7 +1276,7 @@ button {
 	-webkit-transition: -webkit-transform 0.325s ease-in-out, -webkit-filter 0.325s ease-in-out;
 	-ms-transition: -ms-transform 0.325s ease-in-out, -ms-filter 0.325s ease-in-out;
 	transition: transform 0.325s ease-in-out, filter 0.325s ease-in-out;
-	background-image: url("/images/IMG_5385.jpg");
+	background-image: url("/images/bg2.jpg");
 	background-position: center;
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -1759,7 +1759,7 @@ body.is-preload #header .content .inner {
 	font-size: 0.6rem;
 	opacity: 0.75;
 	margin-bottom: 0;
-	text-transform: uppercase;
+	text-transform: none;
 }
 
 body.is-article-visible #footer {
