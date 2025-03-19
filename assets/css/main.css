@@ -810,15 +810,13 @@ input[type="radio"]+label:before {
 	width: 100%;
 }
 
-.image.main {
-	display: block;
-	margin: 2.5rem 0;
-	width: 100%;
+.image.main img {
+    display: block;
+    margin: auto;
+    width: 50%;  /* Adjust as needed */
+    height: auto;
 }
 
-.image.main img {
-	width: 100%;
-}
 
 @media screen and (max-width: 736px) {
 
@@ -1776,4 +1774,16 @@ body.is-article-visible #footer {
 
 body.is-preload #footer {
 	opacity: 0;
+}
+
+/* Centered List */
+
+.centered-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    list-style: none; /* Optional: Remove bullet points */
 }
