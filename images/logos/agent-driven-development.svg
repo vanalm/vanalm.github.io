@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="200" viewBox="0 0 720 200" role="img" aria-label="Agent-Driven Development Practices">
+  <rect x="0" y="0" width="720" height="200" rx="18" fill="rgba(255,255,255,0.06)"/>
+  <g fill="none" stroke="#ffffff" stroke-opacity="0.85" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="110" cy="74" r="12" />
+    <circle cx="170" cy="54" r="12" />
+    <circle cx="210" cy="96" r="12" />
+    <circle cx="150" cy="120" r="12" />
+    <path d="M122 74h36" />
+    <path d="M178 62l22 22" />
+    <path d="M202 96l-40 18" />
+    <path d="M146 108l-24-24" />
+  </g>
+  <g fill="#ffffff">
+    <text x="280" y="92" font-family="Source Sans Pro, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif" font-size="36" font-weight="700" letter-spacing="1.5">AGENT-DRIVEN</text>
+    <text x="280" y="136" font-family="Source Sans Pro, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif" font-size="28" font-weight="600" letter-spacing="2.5" opacity="0.9">DEVELOPMENT PRACTICES</text>
+  </g>
+</svg>
+
+

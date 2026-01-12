@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Uniformity Model (browser widget)</title>
+    <link rel="stylesheet" href="./styles.css?v=4" />
+    <!-- Plotly (CDN) keeps this compatible with GitHub Pages without a build step -->
+    <script src="https://cdn.plot.ly/plotly-2.30.0.min.js"></script>
+  </head>
+  <body>
+    <div class="page">
+      <header class="header">
+        <div>
+          <h1>Crop Water Dynamics Simulation</h1>
+          <p class="subhead">
+            Modeling water driven uniformity drift in a substrate grown crop.
+          </p>
+        </div>
+        <div class="headerActions">
+          <button id="btnReset" class="btn secondary" type="button">Reset</button>
+          <button id="btnStep" class="btn secondary" type="button">Step</button>
+          <button id="btnRun" class="btn primary" type="button">Run</button>
+        </div>
+      </header>
+
+      <section class="panel plotsPanel" aria-label="Graphs">
+        <div class="plots">
+          <div class="plotWrap">
+            <div class="plotTitle">Full crop</div>
+            <div id="plot" class="plot"></div>
+          </div>
+          <div class="plotWrap scaleWrap">
+            <div class="plotTitle">Scale sample</div>
+            <div id="plotScale" class="plot plotScale"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="grid">
+        <aside class="panel">
+          <h2>Inputs</h2>
+
+          <div class="formGrid">
+            <label>
+              <span>Per-Irrigation volume (ml)</span>
+              <input id="phase1" type="number" step="1" min="0" value="150" />
+            </label>
+
+            <label>
+              <span>Lower volume limit (ml)</span>
+              <input id="limit" type="number" step="1" min="0" value="6000" />
+            </label>
+
+            <label>
+              <span>Starting moisture (ml)</span>
+              <input id="startingMoisture" type="number" step="1" min="0" value="6200" />
+            </label>
+
+            <label>
+              <span>Number of plants</span>
+              <input id="nPlants" type="number" step="1" min="1" max="5000" value="100" />
+            </label>
+
+            <label>
+              <span>Number of Plants on Scale</span>
+              <input id="nROPlants" type="number" step="1" min="1" max="5000" value="5" />
+            </label>
+
+            <label>
+              <span>Sigma (uniformity distribution)</span>
+              <input id="sigma" type="number" step="0.01" min="0" max="2" value="0.25" />
+            </label>
+
+            <label>
+              <span>Days to model</span>
+              <input id="nDays" type="number" step="1" min="1" max="365" value="1" />
+            </label>
+
+            <label>
+              <span>Random seed</span>
+              <input id="seed" type="number" step="1" min="0" value="1" />
+            </label>
+
+            <label class="wide">
+              <span>Speed (seconds per step)</span>
+              <input id="speed" type="range" min="0.05" max="2" step="0.05" value="0.5" />
+              <div class="rangeHelp"><span id="speedLabel">0.50</span> sec/step</div>
+            </label>
+
+            <label class="wide">
+              <span>Render every N steps</span>
+              <input id="renderEvery" type="number" step="1" min="1" max="200" value="2" />
+            </label>
+          </div>
+
+          <div class="notes">
+            <h3>Notes</h3>
+            <ul>
+              <li>Consumption is the integral of the transpiration polynomial over each 0.25 hr step, scaled by per-plant random factors.</li>
+              <li>Irrigation triggers when the <em>sum</em> of the first meas pots is ≤ <code>limit * numROplants</code>, then adds <code>phase1</code> to all plants.</li>
+            </ul>
+          </div>
+        </aside>
+
+        <main class="panel panelSim">
+          <h2>Simulation</h2>
+          <div class="statsBar">
+            <div class="statsRow" id="stats"></div>
+            <button
+              id="helpBtn"
+              class="iconBtn"
+              type="button"
+              aria-label="How this simulation works"
+              aria-expanded="false"
+              aria-controls="helpPopover"
+            >
+              ?
+            </button>
+          </div>
+
+          <div id="helpPopover" class="popover hidden" role="dialog" aria-label="Simulation help">
+            <div class="popoverHeader">
+              <div class="popoverTitle">How it works</div>
+              <button id="helpClose" class="iconBtn iconBtnSmall" type="button" aria-label="Close help">×</button>
+            </div>
+            <div class="popoverBody">
+              <ul>
+                <li><b>Each bar</b> represent the amount of water in an individual pot (ml).</li>
+                <li><b>Consumption</b> is calculated every 0.25 hr using the integral of the transpiration curve, scaled by each plant’s random “uniformity factor” (Normal(1, σ)) (this accounts for differences in plant health, leave surface area, environment, etc).</li>
+                <li><b>Scale sample</b> is a random subset of plants picked to represent the crop for steering irrigation.</li>
+                <li><b>Irrigation trigger</b>: when the <b>average</b> of the Scale pots drops to/below the “Lower volume limit”, the whole crop is irrigated (+Per-Irrigation volume).</li>
+                <li><b>Seed</b> makes the random plants and Scale selection repeatable.</li>
+                <li><b>As time passes, small plants get wetter, and big plants get dryer, causing a spiral effect, ultimately leading to significant decrease in yield. when pots are "flushed", they are irrigated until water runs out the bottom of the pots, flushing out hydroxide ions and ferlizer residues to recover optimal ph and water potential </li>
+              </ul>
+            </div>
+          </div>
+          <details class="log">
+            <summary>Event log</summary>
+            <pre id="log"></pre>
+          </details>
+        </main>
+      </section>
+    </div>
+
+    <script src="./app.js?v=8"></script>
+  </body>
+</html>
+
+

@@ -817,6 +817,71 @@ input[type="radio"]+label:before {
     height: auto;
 }
 
+/* Project logos (cleaner than full-bleed images) */
+
+.image.logo:before {
+	display: none;
+}
+
+.image.logo img {
+	display: block;
+	margin: 0 auto 1.5rem auto;
+	width: 22rem;
+	max-width: 100%;
+	height: auto;
+	background: rgba(255, 255, 255, 0.04);
+	border-radius: 12px;
+	padding: 0.75rem 1rem;
+}
+
+.image.logo.small img {
+	width: 10rem;
+	padding: 0.6rem 0.75rem;
+	margin-bottom: 1rem;
+}
+
+/* Projects: logo + text side-by-side (logo on left) */
+.project-row {
+	display: flex;
+	gap: 1.5rem;
+	align-items: flex-start;
+}
+
+.project-row .project-logo {
+	flex: 0 0 auto;
+}
+
+.project-row .project-body {
+	flex: 1 1 auto;
+	min-width: 0;
+}
+
+/* Override the default centered "logo card" styling when used inline in Projects */
+.project-row .image.logo img {
+	margin: 0;
+	width: 9rem;
+	max-width: 100%;
+	padding: 0.6rem 0.75rem;
+	border-radius: 12px;
+}
+
+.project-row .image.logo.small img {
+	width: 7rem;
+	padding: 0.5rem 0.6rem;
+}
+
+@media screen and (max-width: 736px) {
+	.project-row {
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	.project-row .image.logo img,
+	.project-row .image.logo.small img {
+		width: 12rem;
+	}
+}
+
 
 @media screen and (max-width: 736px) {
 
@@ -1412,10 +1477,23 @@ body.is-preload #bg:before {
 	line-height: 5.5rem;
 	border: solid 1px #ffffff;
 	border-radius: 100%;
+	overflow: hidden;
 }
 
 #header .logo .icon:before {
 	font-size: 2rem;
+}
+
+#header .logo img.logo-photo {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border-radius: 100%;
+}
+
+#header>*:before {
+	display: none;
 }
 
 #header .content {
@@ -1456,6 +1534,8 @@ body.is-preload #bg:before {
 	display: -webkit-flex;
 	display: -ms-flex;
 	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
 	margin-bottom: 0;
 	list-style: none;
 	padding-left: 0;
@@ -1484,6 +1564,13 @@ body.is-preload #bg:before {
 	border-bottom: 0;
 }
 
+/* Experience */
+
+.role-meta {
+	opacity: 0.85;
+	margin-bottom: 1.25rem;
+}
+
 #header nav ul li a:hover {
 	background-color: rgba(255, 255, 255, 0.075);
 }
@@ -1493,18 +1580,11 @@ body.is-preload #bg:before {
 }
 
 #header nav.use-middle:after {
-	content: '';
-	display: block;
-	position: absolute;
-	top: 0;
-	left: calc(50% - 1px);
-	width: 1px;
-	height: 100%;
-	background: #ffffff;
+	display: none;
 }
 
 #header nav.use-middle ul li.is-middle {
-	border-left: 0;
+	border-left: solid 1px #ffffff;
 }
 
 body.is-article-visible #header {
@@ -1786,4 +1866,60 @@ body.is-preload #footer {
     margin: 0; /* Remove default margin */
     padding: 0; /* Remove default padding */
     list-style: none; /* Optional: Remove bullet points */
+}
+
+/* Embedded simulation (Uniformity Model) */
+.sim-embed {
+	width: 100%;
+	height: 70vh;
+	border: 1px solid rgba(255, 255, 255, 0.18);
+	border-radius: 0.25rem;
+	background: rgba(255, 255, 255, 0.04);
+}
+
+@media screen and (max-width: 480px) {
+	.sim-embed {
+		height: 60vh;
+	}
+}
+
+/* Substrate Agriculture header (title + photo) */
+#Substrate_Agriculture .sa-header {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: 1.25rem;
+	margin-bottom: 1.25rem;
+}
+
+#Substrate_Agriculture .sa-header h2.major {
+	flex: 1 1 auto;
+	margin-bottom: 0;
+}
+
+#Substrate_Agriculture .sa-photo {
+	flex: 0 0 auto;
+	width: 160px;
+	max-width: 35%;
+	border-radius: 0.25rem;
+	overflow: hidden;
+	border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+#Substrate_Agriculture .sa-photo img {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+@media screen and (max-width: 736px) {
+	#Substrate_Agriculture .sa-header {
+		flex-direction: column;
+		align-items: stretch;
+	}
+
+	#Substrate_Agriculture .sa-photo {
+		width: 100%;
+		max-width: 100%;
+	}
 }

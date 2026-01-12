@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="200" viewBox="0 0 720 200" role="img" aria-label="Etxt.ai">
+  <rect x="0" y="0" width="720" height="200" rx="18" fill="rgba(255,255,255,0.06)"/>
+  <g fill="none" stroke="#ffffff" stroke-opacity="0.85" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M82 70c0-16 13-30 30-30h138c17 0 30 14 30 30v60c0 16-13 30-30 30H150l-38 22v-22h0c-17 0-30-14-30-30V70z" />
+    <path d="M122 82h118" />
+    <path d="M122 106h90" />
+    <path d="M122 130h64" />
+  </g>
+  <g fill="#ffffff">
+    <text x="320" y="112" font-family="Source Sans Pro, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif" font-size="64" font-weight="700" letter-spacing="1">etxt.ai</text>
+  </g>
+</svg>
+
+
